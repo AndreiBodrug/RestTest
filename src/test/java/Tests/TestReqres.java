@@ -43,6 +43,7 @@ public class TestReqres {
     }
     @Test
     public void testCreate(){
+
         String url = "/users";
         String body = "{\n" +
                 "    \"name\": \"morpheus\",\n" +
@@ -50,5 +51,35 @@ public class TestReqres {
                 "}";
         Response response = POST(body,url);
         isStatusCodeValid(response, 201);
+    }
+    @Test
+    public void testPut(){
+
+        String url = "/users/2";
+        String body = "{\n" +
+                "    \"name\": \"morpheus\",\n" +
+                "    \"job\": \"zion resident\"\n" +
+                "}";
+        Response response = PUT(body,url);
+        isStatusCodeValid(response, 200);
+    }
+    @Test
+    public void testDelete(){
+
+        String url = "/users/2";
+        Response response = DELETE(url);
+        isStatusCodeValid(response, 204);
+
+    }
+    @Test
+    public void testPatch(){
+
+        String url = "/users/2";
+        String body = "{\n" +
+                "    \"name\": \"morpheus\",\n" +
+                "    \"job\": \"zion resident\"\n" +
+                "}";
+        Response response = PUT(body,url);
+        isStatusCodeValid(response, 200);
     }
 }
