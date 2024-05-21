@@ -18,7 +18,7 @@ public class StepsForTempConvert {
     }
     @Step
     public double temperatureConventer(){
-        double result;
+        double result = 0;
         if(initialMeasure.equals("Celsius") && this.conversionMeasure.equals("Fahrenheit")){
             result =(((this.temperature*2)/100)*100) + 32.0;
         }else if(this.initialMeasure.equals("Celsius") && this.conversionMeasure.equals("Kelvin")){
@@ -29,8 +29,10 @@ public class StepsForTempConvert {
             result = (((this.temperature - 32)*5/9) + 273.15);
         }else if(this.initialMeasure.equals("Kelvin") && this.conversionMeasure.equals("Celsius")) {
             result = (this.temperature - 273.15);
-        }else{
+        }else if(this.initialMeasure.equals("Kelvin") && this.conversionMeasure.equals("Fahrenheit")){
             result = ((this.temperature - 32)*5/9) + 32;
+        }else {
+            System.out.println("Wrong input");
         }
         return result;
     }
